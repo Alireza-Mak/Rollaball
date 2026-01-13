@@ -31,6 +31,7 @@ public class PlayerController : MonoBehaviour
     {
         // Get and store the Rigidbody component attached to the player.
         rb = GetComponent<Rigidbody>();
+        rb.WakeUp();
 
         // Initialize count to zero.
         count = 0;
@@ -99,6 +100,7 @@ public class PlayerController : MonoBehaviour
     // Function to handle collision with "Enemy" objects.
     private void OnCollisionEnter(Collision collision)
     {
+        Debug.Log("Player collided with: " + collision.gameObject.name);
         if (collision.gameObject.CompareTag("Enemy"))
         {
             // Destroy the current object
